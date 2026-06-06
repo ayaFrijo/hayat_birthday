@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Hayat ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  /* --- لوحة الألوان الفخمة والعتيقة المتناسقة --- */
+  :root {
+    --parchment: #f7ebd3;      /* ورق بردي فخم وناعم */
+    --ink: #2a1b14;            /* حبر بني عتيق غامق جداً */
+    --sepia: #83624c;          /* بني سبيا دافئ للتفاصيل */
+    --gold: #d4af37;           /* ذهبي ملكي براق */
+    --gold-glow: rgba(212, 175, 55, 0.4);
+    --bg-dark: #120a06;        /* خلفية غامضة ودافئة تعطي عمق للموقع */
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1f120b 100%);
+    font-family: 'IM Fell English', serif;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* تأثير السينما العتيقة ف الخلفية */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* --- المرحلة 1: الهدية السحرية --- */
+  .gift-section {
+    text-align: center;
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+  }
+  .gift-section.hidden {
+    opacity: 0;
+    transform: scale(0.5) translateY(-100px);
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .gift {
+    font-size: 150px;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 15px 40px var(--gold-glow));
+    animation: bounceGift 2s infinite alternate ease-in-out;
+  }
+  @keyframes bounceGift {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+  }
+  .gift:hover {
+    transform: scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 20px 50px rgba(212, 175, 55, 0.7));
+  }
+
+  .click-text {
+    color: var(--gold);
+    margin-top: 25px;
+    font-size: 1.3rem;
+    letter-spacing: 5px;
+    font-family: 'Cinzel', serif;
+    animation: glow-text 2s infinite ease-in-out;
+  }
+  @keyframes glow-text {
+    0%, 100% { text-shadow: 0 0 10px rgba(212,175,55,0.3); opacity: 0.6; }
+    50% { text-shadow: 0 0 25px rgba(212,175,55,0.9); opacity: 1; }
+  }
+
+  /* --- المرحلة 2: نصوص التهنئة الشعرية --- */
+  .wish-section {
+    display: none;
+    text-align: center;
+    margin-bottom: 50px;
+    z-index: 2;
+  }
+  .wish-section.show {
+    display: block;
+    animation: fadeIn 1.2s ease forwards;
+  }
+  .wish-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3rem, 7vw, 5rem);
+    color: var(--gold);
+    margin-bottom: 15px;
+    text-shadow: 0 0 35px rgba(212,175,55,0.6);
+  }
+  .love-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: #eaddca;
+    opacity: 0;
+    letter-spacing: 2px;
+  }
+  .love-text.show {
+    opacity: 1;
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+    50% { transform: scale(1.06); text-shadow: 0 0 25px var(--gold); }
+  }
+
+  /* --- المرحلة 3: معرض كروت التهنئة الأسطورية --- */
+  .cards-container {
+    display: none;
+    gap: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+    perspective: 1200px;
+    margin-bottom: 60px;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+  }
+  .cards-container.show {
+    display: flex;
+    animation: fadeInUp 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+  }
+  
+  .card-wrapper {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    opacity: 0;
+  }
+  .card-wrapper.show {
+    animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+  .card-wrapper:nth-child(1) { animation-delay: 0.3s; }
+  .card-wrapper:nth-child(2) { animation-delay: 0.6s; }
+  .card-wrapper:nth-child(3) { animation-delay: 0.9s; }
+
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: pointer;
+  }
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  .card:hover:not(.flipped) {
+    transform: translateY(-10px) rotateY(10deg);
+  }
+
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    background: var(--parchment);
+    background-image: linear-gradient(rgba(131, 98, 76, 0.04) 1px, transparent 1px);
+    background-size: 100% 24px;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 3px double var(--sepia);
+  }
+  
+  /* واجهة الكارت الفخمة */
+  .card-front {
+    font-size: 5.5rem; 
+    color: var(--sepia);
+    background: radial-gradient(circle, #fff3dc 0%, var(--parchment) 100%);
+  }
+  .card-front span {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 20px;
+    letter-spacing: 4px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+  }
+
+  /* ظهر الكارت (الرسالة والتهنئة) */
+  .card-back {
+    transform: rotateY(180deg);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--ink);
+    font-style: italic;
+    justify-content: space-between;
+  }
+  .card-back p {
+    margin-auto: auto;
+  }
+  .card-back .signature {
+    margin-top: auto;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: var(--sepia);
+    width: 100%;
+    border-top: 1px dotted var(--sepia);
+    padding-top: 10px;
+  }
+
+  /* --- الجزء السفلي (التاريخ والروزنامة) --- */
+  .bottom-section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    margin-top: 20px;
+    z-index: 2;
+    width: 100%;
+  }
+  .bottom-section.show {
+    display: flex;
+    animation: fadeInUp 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+  }
+
+  .date {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 8px;
+    opacity: 0;
+    text-shadow: 0 0 25px rgba(212,175,55,0.7);
+  }
+  .bottom-section.show .date {
+    animation: glow 2s ease-in-out infinite, fadeIn 1s ease 0.4s forwards;
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px rgba(212,175,55,0.5); }
+    50% { text-shadow: 0 0 40px rgba(212,175,55,1), 0 0 60px rgba(212,175,55,0.6); }
+  }
+
+  /* الروزنامة الملكية */
+  .calendar {
+    background: linear-gradient(145deg, #ffffff 0%, var(--parchment) 100%);
+    border: 3px double var(--sepia);
+    border-radius: 16px;
+    padding: 30px 40px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.4s ease;
+  }
+  .calendar:hover {
+    transform: scale(1.03);
+  }
+  .bottom-section.show .calendar {
+    animation: fadeIn 1s ease 0.8s forwards;
+  }
+
+  .calendar-header {
+    font-family: 'Cinzel', serif;
+    color: var(--sepia);
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 5px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .age-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  .age-old {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    color: var(--sepia);
+    opacity: 0.35;
+    position: relative;
+  }
+  .age-old::after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    right: -8px;
+    top: 50%;
+    height: 4px;
+    background: #9e1b1b;
+    transform: rotate(-15deg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .age-new {
+    font-family: 'Cinzel', serif;
+    font-size: 4.5rem;
+    color: var(--ink);
+    font-weight: 700;
+    animation: pulse 1.6s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(212,175,55,0.4);
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); color: var(--gold); }
+  }
+
+  .calendar img {
+    border-radius: 10px;
+    border: 2px solid var(--sepia);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .calendar img:hover {
+    transform: scale(1.1) rotate(2deg);
+  }
+
+  /* الفوتر */
+  footer {
+    margin-top: 20px;
+    opacity: 0;
+  }
+  .bottom-section.show footer {
+    animation: fadeIn 1s ease 1.4s forwards;
+  }
+  footer h5 {
+    font-family: 'IM Fell English', serif;
+    color: var(--sepia);
+    font-style: italic;
+    font-size: 1.05rem;
+    letter-spacing: 4px;
+    text-align: center;
+  }
+
+  /* الأنيماشينز العامة للتأثيرات البصرية */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeInUp { 
+    from { opacity: 0; transform: translateY(40px); } 
+    to { opacity: 1; transform: translateY(0); } 
+  }
+
+  .typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--gold);
+    animation: typing 2.5s steps(30, end), blink-caret 0.8s step-end infinite;
+  }
+  @keyframes typing { from { width: 0; } to { width: 100%; } }
+  @keyframes blink-caret { 50% { border-color: transparent; } }
+</style>
+</head>
+<body>
+
+<!-- فيديو وخلفية الصوت جاهزة وخفية 100% -->
+<video id="birthdayMusic" loop style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0">
+  <source src="VID-20260605-WA0026.mp4" type="video/mp4">
+</video>
+
+<!-- المَشْهَد 1: فتح الهدية -->
+<div class="gift-section" id="giftSection">
+  <div class="gift" onclick="openGift()">🎁</div>
+  <p class="click-text">Open your gift...</p>
+</div>
+
+<!-- المَشْهَد 2: التهنئة الآلية الفخمة -->
+<div class="wish-section" id="wishSection">
+  <h1 class="wish-text" id="wishText"></h1>
+  <h2 class="love-text" id="loveText">I love uuu</h2>
+</div>
+
+<!-- المَشْهَد 3: كروت التهنئة التفاعلية ثلاثية الأبعاد -->
+<div class="cards-container" id="cardsContainer">
+  <!-- الكارت 1 -->
+  <div class="card-wrapper">
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-face card-front">✉️<span>OPEN ME</span></div>
+      <div class="card-face card-back">
+        <p>Dear Hayat,<br><br>
+        On your special day, I wish you a year as calm and beautiful as your soul. May your ambitions take you higher than you ever dreamed.<br><br>
+        You deserve all the magic the world has to offer.</p>
+        <div class="signature">— With love</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- الكارت 2 -->
+  <div class="card-wrapper">
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-face card-front">📜<span>READ THIS</span></div>
+      <div class="card-face card-back">
+        <p>To the girl with the purest heart,<br><br>
+        Your presence turns ordinary moments into memories. Your quiet strength inspires everyone around you.<br><br>
+        Happy Birthday to someone truly extraordinary.</p>
+        <div class="signature">— Always</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- الكارت 3 -->
+  <div class="card-wrapper">
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-face card-front">🤎<span>FOR YOU</span></div>
+      <div class="card-face card-back">
+        <p>Hayat,<br><br>
+        Like a rare flower blooming in silence, you bring beauty without trying. May this new chapter bring you joy, success, and love beyond measure.<br><br>
+        The world is brighter because you're in it.</p>
+        <div class="signature">— Forever</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- المَشْهَد 4: جزء الروزنامة وتغيير السن وصورة الهاتف -->
+<div class="bottom-section" id="bottomSection">
+  <div class="date">8 JUNE</div>
+  
+  <div class="calendar">
+    <div class="calendar-header">Age</div>
+    <div class="age-row">
+      <span class="age-old">18</span>
+      <span class="age-new">19</span>
+    </div>
+    <!-- الصورة تظهر هنا بشكل منسق فخم -->
+    <img src="WhatsApp Image 2026-06-05 at 21.48.47.jpeg" alt="Hayat's Special Moment" width="120px" height="120px">
+  </div>
+
+  <footer>
+    <h5>Crafted with love, for you my darling...</h5>
+  </footer>
+</div>
+
+<script>
+// دالة فتح الهدية الاحترافية والوحيدة ف الكود لمنع أي تضارب
+function openGift(){
+  // 1. تشغيل الصوت والموسيقى فوراً وسحب كتم الصوت
+  const music = document.getElementById('birthdayMusic');
+  music.volume = 0.6;
+  music.muted = false;
+  music.play().catch(e => console.log("Autoplay context note:", e));
+  
+  // 2. إخفاء أيقونة الهدية بتأثير سلس
+  document.getElementById('giftSection').classList.add('hidden');
+  
+  // 3. بدء تتابع ظهور العناصر السينمائي
+  setTimeout(() => {
+    document.getElementById('wishSection').classList.add('show');
+    
+    // تشغيل الـ Typewriter لكلمة التهنئة الكبيرة
+    typeWriter("Happy Birthday my Hayat", "wishText", () => {
+      
+      // إظهار نص الحب
+      setTimeout(() => {
+        document.getElementById('loveText').classList.add('show');
+      }, 400);
+      
+      // إظهار كروت التهنئة الثلاثية الأبعاد
+      setTimeout(() => {
+        document.getElementById('cardsContainer').classList.add('show');
+        document.querySelectorAll('.card-wrapper').forEach(wrapper => {
+          wrapper.classList.add('show');
+        });
+        
+        // إظهار الروزنامة والصورة والفوتر ف النهاية بسلاسة
+        setTimeout(() => {
+          document.getElementById('bottomSection').classList.add('show');
+        }, 1200);
+        
+      }, 2000);
+    });
+  }, 800);
+}
+
+// دالة كتابة النصوص الاحترافية (Typewriter)
+function typeWriter(text, elementId, callback){
+  let i = 0;
+  const element = document.getElementById(elementId);
+  element.innerHTML = '';
+  element.classList.add('typewriter');
+  
+  function typing(){
+    if(i < text.length){
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 100); // سرعة الكتابة المريحة والمنسقة
+    } else {
+      element.classList.remove('typewriter');
+      if(callback) callback();
+    }
+  }
+  typing();
+}
+</script>
+
+</body>
+</html>
